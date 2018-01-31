@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>MT Tutorial: Creating a chatty NPC</title>
+		<style type="text/css" media="screen"><!--
+body { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+td { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+h1 { color: #36c; font-size: 15px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h2  { color: #f33; font-size: 14px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h3   { color: #06c; font-size: 12px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+a { color: #663 }
+.code { font-size: 11px; font-family: "Courier New", Courier, Monaco, monospace }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<h1>MemeticAI Toolkit: Tutorials</h1>
+		<h2><a name="Anchor-Basi-2609" id="Anchor-Basi-2609"></a>Basic:&nbsp;Creating a Chatty NPC</h2>
+		<h3>1. Overview</h3>
+		<p>The purpose of this tutorial is to show you how to have your NPC speak from a list of pre-defined strings.</p>
+		<p>In this tutorial we will assume that you have completed Tutorial 1, and are reusing that NPC.</p>
+		<h3>2. The Talk Table</h3>
+		<p>The Memetic Toolkit uses its own local string lists to implement Talk Tables.  You can create a list of strings (or int, or any of the NWScript data types) on a memetic NPC using the MeAdd*Ref() functions.</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						<font color=green>// MeAddStringRef<br>
+						// File: h_list<br>
+						// Adds a string to a string list on the target given the list name.<br>
+						// There can be multiple lists of different types with the same name on the same object.<br></font>
+						<font color="blue">void</font> <b>MeAddStringRef</b>(<font color="blue">object</font> oTarget, <font color="blue">string</font> oString, <font color="blue">string</font> sListName = "", <font color="blue">int</font> bAddUnique = <font color="blue">FALSE</font>)						
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>Using MeAddStringRef(), we're going to add a named list of strings to the NPC, and set a local string, "TalkTable", to the name of the list.  Using this method, you can create a number of potential Talk Tables, and simply "activate" one by setting the local string "TalkTable" to the name of the one you want to use.</p>
+		<p>We will also change the default idle Response Table so that the NPC will occasionally chat when idle.</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_ai&quot;
+						<div class="code">
+							<p>void main()<br>
+								{<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;OnSpawn name = '&quot;+_GetName(OBJECT_SELF)+&quot;'&quot;);</p>
+								<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">NPC_SELF = MeInit();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeInstanceOf(NPC_SELF, &quot;generic, townfolk, defender, guard&quot;);</p>
+								<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_do_nothing&quot;, 100, RESPONSE_END);<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_bored&quot;, 90, RESPONSE_HIGH);<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><font color="#ff3300">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_chatter&quot;, 90, RESPONSE_HIGH);</font><br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_wander&quot;, 90, RESPONSE_MEDIUM);<br></p>
+								<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetActiveResponseTable(&quot;Idle&quot;, &quot;My Response Table&quot;, &quot;&quot;);</p>
+								<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddStringRef(NPC_SELF, &quot;I'm memetic!&quot;, &quot;My Talk Table&quot;);</font><br>
+								<font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddStringRef(NPC_SELF, &quot;Isn't this fun?&quot;, &quot;My Talk Table&quot;);</font><br>
+								<font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddStringRef(NPC_SELF, &quot;Wheee!&quot;, &quot;My Talk Table&quot;);</font><br></p>
+								<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetLocalString(NPC_SELF, &quot;TalkTable&quot;, &quot;My Talk Table&quot;);</font></p>
+								<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+							}</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>The final results will be an NPC that will:
+		<ul>
+			<li>Act bored 54% of the time (60% <B>RESPONSE_HIGH</B> * 90% &quot;f_bored&quot;)</li>
+			<li>Chatter 5.4% of the time (60% <B>RESPONSE_HIGH</B> * 10% <i>no</i> &quot;f_bored&quot; * 90% &quot;f_chatter&quot;)</li>
+			<li>Wander 27% of the time (30% <B>RESPONSE_MEDIUM</B> * 90% &quot;f_wander&quot;)</li>
+			<li>Do nothing 13.6% of the time (100% - 54% &quot;f_bored&quot; - 5.4% &quot;f_chatter&quot; - 27% &quot;f_wander&quot;)</li>
+		</ul></p>
+		<p>What!?!  The NPC will only chatter 5.4% of the time?  That's pretty quiet.  Let's rework the Response Table entries to give us a more talkative NPC.</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						<p>...</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_do_nothing&quot;, 100, RESPONSE_END);<br>
+						<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_bored&quot;, <font color="#ff3300">40</font>, RESPONSE_HIGH);<br>
+						<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_chatter&quot;, <font color="#ff3300">100</font>, RESPONSE_HIGH);<br>
+						<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_wander&quot;, 90, RESPONSE_MEDIUM);<br></p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetActiveResponseTable(&quot;Idle&quot;, &quot;My Response Table&quot;, &quot;&quot;);</p>
+						<p>...</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>Now we have an NPC that will:
+		<ul>
+			<li>Act bored 24% of the time (60% <B>RESPONSE_HIGH</B> * 40% &quot;f_bored&quot;)</li>
+			<li>Chatter 36% of the time (60% <B>RESPONSE_HIGH</B> * 60% <i>no</i> &quot;f_bored&quot;)</li>
+			<li>Wander 27% of the time (30% <B>RESPONSE_MEDIUM</B> * 90% &quot;f_wander&quot;)</li>
+			<li>Do nothing 13% of the time (100% - 24% &quot;f_bored&quot; - 36% &quot;f_chatter&quot; - 27% &quot;f_wander&quot;)</li>
+		</ul></p>
+		<p>That's better, but it also highlights a serious &quot;gotcha&quot; when working with response tables.  You have to be very, <i>very</i> careful in setting up the correct probabilities for each response.</p>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>Untitled Page</title>
+		<style type="text/css" media="screen"><!--
+body { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+td { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+h1 { color: #36c; font-size: 15px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h2  { color: #f33; font-size: 14px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h3   { color: #06c; font-size: 12px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+a { color: #663 }
+.code { font-size: 11px; font-family: "Courier New", Courier, Monaco, monospace }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<h1><a name="Anchor-MemeticA-20107" id="Anchor-MemeticA-20107"></a>MemeticAI Toolkit: Roadmap to 1.0</h1>
+		<h2>Overview</h2>
+		<p>This document will outline what needs to be done to deliver the first public release of the MemeticAI&nbsp;Toolkit. At this point in time, the core toolkit is considered feature complete. Because the architecture of the toolkit has significantly changed over the past two years, we now have to review and reorganize our libraries of classes, memetic objects, and functions. The will now have to work using classes, response tables, and leverage default variables set directly on the NPC by a builder.</p>
+		<p>I recommend you read the current README&nbsp;in CVS. I have published a snapshot of it on the memetic forums, <a href="http://www.memeticai.org/forums/viewtopic.html?t=169">here</a>. We have three distinct audiences that have to be satisfied with the public release:&nbsp;builders, module developers, and memetic developers. </p>
+		<p>Builders will want prefabricated NPCs. They will use the <a href="http://www.memeticai.org/download/view.html?file=59">script template</a> to add callbacks to their NPC. A new standard s_generic spawn script (or possibly named cb_spawn) will automatically join the NPC to a class. Builders will adjust variables directly on the NPC using the variable dialog and have a working, useful NPC.</p>
+		<p>Developers will need tutorials and documentation, more than anything else. They will need to understand how to use the libraries and why and when to build each type of memetic object.</p>
+		<p></p>
+		<h2>Assigned Tasks</h2>
+		<ol>
+			<li>Dustums is going to merge the store allocator code.<br>
+				<br>
+			<li>Bill is rewriting lib_generic to encapsulate memes and generators that handle response tables.<br>
+				<br>
+			
+			<li>Garad and Bill are reviewing lib_converse to make sure it's clear how it uses default variables. All new memes should follow this pattern to find defaults that a builder can set on the NPC directly. This involved mapping names to conf strings. This will be converted into a tutorial to establish a policy.<br>
+				<br>
+			
+			
+			<li>Senach will commit the new SetAI code to ensure that NPCs go to sleep when players aren't in an area.<br>
+				<br>
+			
+			
+			
+			<li>Niveau0 is going to merge the core combat code optimizations.<br>
+				<br>
+			
+			<li>Daryl is going to commit the new h_landmark and landmark system.
+		</ol>
+		<h2>Open Tasks</h2>
+		<ol>
+			<li>A new s_generic must be written.&nbsp;It reads a confstring from the NPC with its class.<br>
+				If there isn't a confstring it does something smart to add the NPC to a standard class.<br>
+				<br>
+			
+			
+			
+			<li>The script templates need to be updated to include the new s_generic.<br>
+				<br>
+			<li>MeGotoArea(), MeGotoLocation(), MeGotoObject(), MeGotoLandmark() and the accompanying i_gotolandmark memes need to be rewritten to match the new landmark code.<br>
+				<br>
+			<li>Tutorials need to be written. An outline of the tutorials can be found below. If you'd like to write a tutorial, please discuss it with Bill to make sure the implementation and approach is correct. These tutorials shoud demonstrate best practices.<br>
+				<br>
+			<li>A&nbsp;web-based library RAD tool needs to be written. This will generate the function stubs and the main() for a library.<br>
+				<br>
+			<li>The combat system needs to be reviewed to make sure it handles target selection and response tables. Future work includes leader and subordinate combat classes for choosing a target as opposed to a monolithic combat table that does threat assessment and reaction in one.<br>
+				<br>
+			<li>Code to keep an NPC standing an area or near an object needs to be tested.<br>
+				<br>
+				This may be implmented as a function in an Idle response table and an event for receiving messages when an NPC leaves a trigger area, or map. We need to consider how contrained movement works when you're in combat. Is there a way to say hold your ground in combat? Are these standard behaviors that all NPCs should understand.<br>
+				<br>
+			
+			<li>Event handlers for swtiching state for daily schedules have been written, but need to be revisited. We have to make sure idle tables can change when an NPC here's a time of day message. We need to decide if the Work situation is simply an idle table and if it is, how does it get activated on a schedule? <br>
+				<br>
+			<li>We need a standard animation library written to hold the large collection of animation fragments used for idle and work response tables. This <b>lib_animation</b> would contain animation functions that have one state and memes for multi-state animations. Examples of a one-state animation include bowing, vomiting, crawling around on the ground; multi-state animations include getting a hammer, getting an item, and banging on an anvil.<br>
+				<br>
+			<li>Dispel magic probably removes PoI's Bioware's script must be overridden to not destroy extraordinary effects and PoI's should become an extraordinary effect. The extraordinary effect probably won't work. Instead, the caster object should be checked or a flag should be added and the dispel_areaofeffect() that bioware uses must be overridden.&nbsp;Sorry.<br>
+				<br>
+			<li>When an NPC with a PoI does, his PoIs should go away.<br>
+				<br>
+			<li>The PoI&nbsp;object blueprint must be double checked, It must be marked as PLOT.<br>
+				<br>
+			
+			
+			<li>The PoI conversation needs to be initiated by the PC with himself. Currently the PoI<br>
+				 &lt;Kaell&gt;             AssignCommand(oPC, ClearAllActions());<br>
+				 &lt;Kaell&gt;             AssignCommand(oPC, ActionStartConversation(oPC, &quot;c_XXXX&quot;, TRUE, FALSE));
+		<br>
+				<br>
+			
+			
+			<li>We need an AI class that causes the NPC sleep until they observe the NPC or receive a message from a trigger area. It woudl be best if the memetic toolkit was suspended during this situation.&nbsp;This should also be enhance to have the NPC (optionally) go to sleep if he doesn't see another PC for X minutes/seconds, etc. This will be a great optimization for large areas where PC's rarely visit. -- no need for NPCs to be saying things, triggering other NPCs resposnes, etc. If this &quot;c_efficient&quot; classs is on, the NPC will probably not trigger if DM's are heard/seen.   
+		</ol>
+		<h2>Standard NPCs</h2>
+		<p>We need to provide at a few sample NPCs. At this time I'm focusing on basic combat, daily townsfolk, and ambient wildlife. These will be distributed as NPC blueprints with the 1.0 ERF. Builders will be able to right click on these NPCs and see a listing of public variables on the NPC. </p>
+		<h2>Standard Classes</h2>
+		<p></p>
+		<h2>Standard Response Situations</h2>
+		<h2>Standard Libraries</h2>
+		<h2>Standard Functions</h2>
+		<p>Functions are added to libraries, containing snippets of actions to be added to the action queue. A function is like a very lightweight meme. There will be several standard collections of functions to be added to response tables:</p>
+		<ol>
+			<li><b>lib_animation: </b>These functions are generally used for idle situations. We may want these to be used for greeting or reactions to observations. This depends on if we implement pattern-observation situation. For example, we may want to provide an example of a &quot;react when I&nbsp;see a player with item/variable X&quot;.<b><br>
+					<br>
+				</b>
+			<li><b>lib_door:&nbsp;</b>Door functions create problem-solving child memes.<b><br>
+					<br>
+				</b>
+			<li><b>lib_combat:</b> There are two types of combat functions - analysis functions for choosing targets and combat reaction functions. We should implement several target assessment functions like AttackTheSmallest to AttackWhatMyLeaderAttacks. Combat reaction functions are currently implemented via the CODI AI&nbsp;system. Future work should take Jasperre's combat routines into account. 
+		</ol>
+		<h2>Standard Memetic Objects</h2>
+		<h2>Standard Messages</h2>
+		<h2>Standard NPC&nbsp;Variables</h2>
+		<p>Builders will be able to right click on these NPCs and see a listing of public variables on the NPC. </p>
+	</body>
+
+</html>

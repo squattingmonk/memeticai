@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>MT Tutorial: Adding Idle Animations</title>
+		<style type="text/css" media="screen"><!--
+body { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+td { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+h1 { color: #36c; font-size: 15px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h2  { color: #f33; font-size: 14px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h3   { color: #06c; font-size: 12px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+a { color: #663 }
+.code { font-size: 11px; font-family: "Courier New", Courier, Monaco, monospace }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<h1>MemeticAI Toolkit: Tutorials</h1>
+		<h2><a name="Anchor-Basi-2609" id="Anchor-Basi-2609"></a>Basic:&nbsp;Adding Idle Animations</h2>
+		<h3>1. Overview</h3>
+		<p>The purpose of this tutorial is to show you how to have your NPC do an animation when they're idle.</p>
+		<p>In this tutorial we will assume that you have a basic NPC that is an instance of at least one class - generic. We'll add some overriding idle responses to your NPC's response table. This table will be automatically merged with the standard animations of their classes.</p>
+		<h3>2. The Memetic NPC Spawn Script</h3>
+		<p>The first thing you'll notice about all the memetic scripts is that they have function calls to <b>_Start()</b> at the beginning of every function and calls to <b>_End()</b> just before the function ends. These two functions allow us to write very detailed debug information to the log files, if you turn on debugging. Eventually, you should <a href="#Anchor-Intermediat-45511">read the tutorial</a> on using the XML&nbsp;debug logs.</p>
+		<p>Every Memetic NPC must be initialized with a call to <b>MeInit()</b>. This returns an object called <b>NPC_SELF</b>. We frequently pass this object as a parameter to the Memetic Toolkit's scripts. As you'll see <b>NPC_SELF</b> is used in your NPC's spawn script. </p>
+		<p>Once your NPC has been initialized, the NPC is added to a set of <i>classes</i>. These are not D&amp;D classes, they are classes of behavior like &quot;monster&quot; or &quot;townfolk&quot;. Let's assume you open up the spawn script of a Memetic NPC and find this:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_ai&quot;
+						<div class="code">
+							<p>void main()<br>
+								{<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;OnSpawn name = '&quot;+_GetName(OBJECT_SELF)+&quot;'&quot;);<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">NPC_SELF = MeInit();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><font color="#ff3300">MeInstanceOf(NPC_SELF, &quot;generic, townfolk, defender, guard&quot;);</font></p>
+							<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+								}</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>In this example, the NPC is a member of the <i>generic</i>, <i>townfolk</i>, <i>defender</i> and <i>guard</i> classes. Because it belongs to the <i>generic</i> class it has a low priority behavior called <b>i_idle</b>. Its job is to tell the classes, one by one, that the NPC is idle and they should do something to keep him busy.&nbsp;In this case when there are no other behaviors, i_idle will handle the response tables for:</p>
+		<div align="center">
+			<p>NPC<img src="../images/icons/arrow.gif" alt="" width="9" height="7" align="absmiddle" border="0" hspace="5">Guard<img src="../images/icons/arrow.gif" alt="" width="9" height="7" align="absmiddle" border="0" hspace="5">Defender<img src="../images/icons/arrow.gif" alt="" width="9" height="7" align="absmiddle" border="0" hspace="5">Townfolk</p>
+		</div>
+		<div align="center">
+			<p><img src="../images/art/response.gif" alt="" width="448" height="155" hspace="15"></p>
+		</div>
+		<h3>3. Picking an Animation</h3>
+		<p>What we're going to do is add an animation function to a table, and add that table to our NPC. First, we have to know the name of an animation function. We can either look it up in the documentation or hunt around in the <b>lib_animation</b> script.</p>
+		<p>(You can read all about libraries in the User's Documentation - but what you're looking for is a call to <b>MeLibraryFunction()</b>. That's the NWScript function that registers a <i>library function.</i>)</p>
+		<p>Once we have found an animation function like &quot;f_bored&quot; we can add it to a table. This will cause our NPC to always act bored when they're bored:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_ai&quot;
+						<div class="code">
+							<p>void main()<br>
+								{<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;OnSpawn name = '&quot;+_GetName(OBJECT_SELF)+&quot;'&quot;);</p>
+							<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">NPC_SELF = MeInit();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeInstanceOf(NPC_SELF, &quot;generic, townfolk, defender, guard&quot;);</p>
+							<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_bored&quot;, 100, RESPONSE_END);<br>
+									<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetActiveResponseTable(&quot;Idle&quot;, &quot;My Response Table&quot;, &quot;&quot;);</font></p>
+							<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+								}</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		 
+		<h3>4. Overriding vs. Merging</h3>
+		<p>Unfortunately, in the previous example the call to <b>MeAddResponse()</b> adds the response to the end of the table as a default. This means that it will always respond to the Idle situation. This will always block all other classes from responding.  It is possible to only Wander occassionally, allowing the other classes to react on their own.</p>
+		<p>Merging a response with the response of another classes is easy, but it does require that you decide how frequently you want your function to run. For the sake of efficiency you first classify the response in a response <i>band</i>.:</p>
+		<ol>
+			<li><b>RESPONSE_START</b>: Responses in this band are always run.  They are tried first.
+			<li><b>RESPONSE_HIGH</b>:  Response in this band are tried 60% of the time. 40% of the time they are skipped.
+			<li><b>RESPONSE_MEDIUM</b>: Response in this band are tried 30% of the time. 70% of the time they are skipped.
+			<li><b>RESPONSE_LOW</b>: Response in this band are tried 10% of the time. 90% of the time they are skipped.
+			<li><b>RESPONSE_END</b>: If no other responses are run, all of these responses are run. 
+		</ol>
+		<p>Additionally, we have a number from 0 to 100 that represents the chance a particular response is used. If you add five responses to a RESPONSE_HIGH band and they all have a 100% chance of running, what have you got? A 60% chance the first response is run.</p>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top" width="35">
+					<div align="right">
+						<img src="../images/icons/alert.gif" alt="" width="15" height="14" align="absmiddle" border="0" hspace="10"></div>
+				</td>
+				<td>The response system does not randomly select from the band, it tries each entry, one at a time. This is important to understand. If you have a hundred entries each with a 20% chance of running, the 100th entry has a very slim chance of ever going.</td>
+				<td width="20"></td>
+			</tr>
+		</table>
+		<h3>5. Putting it all Together</h3>
+		<p>So let's have an NPC that occassionally wanders around and frequently acts bored.</p>
+		<p>Let's set up a default response of &quot;f_do_nothing&quot; (from <b>lib_generic</b>) by adding it to the <b>RESPONSE_END</b> band.  Then, we'll add &quot;f_bored&quot; to the <b>RESPONSE_HIGH</b> band at 90% and add &quot;f_wander&quot; (also from <b>lib_generic</b>) to the <b>RESPONSE_MEDIUM</b> band at 90%:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_ai&quot;
+						<div class="code">
+							<p>void main()<br>
+								{<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;OnSpawn name = '&quot;+_GetName(OBJECT_SELF)+&quot;'&quot;);</p>
+							<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">NPC_SELF = MeInit();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeInstanceOf(NPC_SELF, &quot;generic, townfolk, defender, guard&quot;);</p>
+							<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_do_nothing&quot;, 100, RESPONSE_END);</font><br>
+							<font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_bored&quot;, 90, RESPONSE_HIGH);</font><br>
+							<font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;My Response Table&quot;, &quot;f_wander&quot;, 90, RESPONSE_MEDIUM);</font><br></p>
+							<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetActiveResponseTable(&quot;Idle&quot;, &quot;My Response Table&quot;, &quot;&quot;);</font></p>
+							<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+								}</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>The final results will be an NPC that will:
+		<ul>
+			<li>Act bored 54% of the time (60% <B>RESPONSE_HIGH</B> * 90% &quot;f_bored&quot;)</li>
+			<li>Wander 27% of the time (30% <B>RESPONSE_MEDIUM</B> * 90% &quot;f_wander&quot;)</li>
+			<li>Do nothing 19% of the time (100% - 54% &quot;f_bored&quot; - 27% &quot;f_wander&quot;)</li>
+		</ul></p>
+
+	</body>
+
+</html>

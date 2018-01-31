@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NwnXml LetoVersion="4.0.19">
+  <Signature Sig="GIC " Ver="V3.2"/>
+  <Field Type="Struct" StructId="-1">
+    <Field Type="List" Label="Creature List" LabelIndex="-1"/>
+    <Field Type="List" Label="Door List" LabelIndex="-1"/>
+    <Field Type="List" Label="Encounter List" LabelIndex="-1"/>
+    <Field Type="List" Label="List" LabelIndex="-1"/>
+    <Field Type="List" Label="SoundList" LabelIndex="-1"/>
+    <Field Type="List" Label="StoreList" LabelIndex="-1"/>
+    <Field Type="List" Label="TriggerList" LabelIndex="-1"/>
+    <Field Type="List" Label="WaypointList" LabelIndex="-1">
+      <Field Type="Struct" StructId="5">
+        <Field Type="String" Label="Comment" LabelIndex="-1" Value=""/>
+      </Field>
+    </Field>
+    <Field Type="List" Label="Placeable List" LabelIndex="-1"/>
+  </Field>
+</NwnXml>

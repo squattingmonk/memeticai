@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NwnXml LetoVersion="4.0.19">
+  <Signature Sig="GIT " Ver="V3.2"/>
+  <Field Type="Struct" StructId="-1">
+    <Field Type="Struct" Label="AreaProperties" LabelIndex="-1" StructId="100">
+      <Field Type="INT" Label="AmbientSndDay" LabelIndex="-1" Value="31"/>
+      <Field Type="INT" Label="AmbientSndNight" LabelIndex="-1" Value="31"/>
+      <Field Type="INT" Label="AmbientSndDayVol" LabelIndex="-1" Value="32"/>
+      <Field Type="INT" Label="AmbientSndNitVol" LabelIndex="-1" Value="32"/>
+      <Field Type="INT" Label="EnvAudio" LabelIndex="-1" Value="0"/>
+      <Field Type="INT" Label="MusicBattle" LabelIndex="-1" Value="34"/>
+      <Field Type="INT" Label="MusicDay" LabelIndex="-1" Value="20"/>
+      <Field Type="INT" Label="MusicNight" LabelIndex="-1" Value="20"/>
+      <Field Type="INT" Label="MusicDelay" LabelIndex="-1" Value="90000"/>
+    </Field>
+    <Field Type="List" Label="Creature List" LabelIndex="-1"/>
+    <Field Type="List" Label="Door List" LabelIndex="-1"/>
+    <Field Type="List" Label="Encounter List" LabelIndex="-1"/>
+    <Field Type="List" Label="List" LabelIndex="-1"/>
+    <Field Type="List" Label="SoundList" LabelIndex="-1"/>
+    <Field Type="List" Label="StoreList" LabelIndex="-1"/>
+    <Field Type="List" Label="TriggerList" LabelIndex="-1"/>
+    <Field Type="List" Label="WaypointList" LabelIndex="-1">
+      <Field Type="Struct" StructId="5">
+        <Field Type="BYTE" Label="Appearance" LabelIndex="-1" Value="4"/>
+        <Field Type="String" Label="LinkedTo" LabelIndex="-1" Value=""/>
+        <Field Type="ResRef" Label="TemplateResRef" LabelIndex="-1" Value="magic_memetic_wp"/>
+        <Field Type="String" Label="Tag" LabelIndex="-1" Value="Magic_Memetic_WP"/>
+        <Field Type="LocString" Label="LocalizedName" LabelIndex="-1" StringRef="-1">
+          <SubString StringId="0" Value="Magic_Memetic_WP"/>
+        </Field>
+        <Field Type="LocString" Label="Description" LabelIndex="-1" StringRef="-1"/>
+        <Field Type="BYTE" Label="HasMapNote" LabelIndex="-1" Value="0"/>
+        <Field Type="LocString" Label="MapNote" LabelIndex="-1" StringRef="-1"/>
+        <Field Type="BYTE" Label="MapNoteEnabled" LabelIndex="-1" Value="0"/>
+        <Field Type="FLOAT" Label="XPosition" LabelIndex="-1" Value="41"/>
+        <Field Type="FLOAT" Label="YPosition" LabelIndex="-1" Value="41"/>
+        <Field Type="FLOAT" Label="ZPosition" LabelIndex="-1" Value="0"/>
+        <Field Type="FLOAT" Label="XOrientation" LabelIndex="-1" Value="0"/>
+        <Field Type="FLOAT" Label="YOrientation" LabelIndex="-1" Value="1"/>
+      </Field>
+    </Field>
+    <Field Type="List" Label="Placeable List" LabelIndex="-1"/>
+  </Field>
+</NwnXml>

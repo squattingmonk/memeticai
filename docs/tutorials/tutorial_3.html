@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>MT Tutorial: Creating a Waypoint-Walking NPC</title>
+		<style type="text/css" media="screen"><!--
+body { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+td { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+h1 { color: #36c; font-size: 15px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h2  { color: #f33; font-size: 14px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h3   { color: #06c; font-size: 12px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+a { color: #663 }
+.code { font-size: 11px; font-family: "Courier New", Courier, Monaco, monospace }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<h1>MemeticAI Toolkit: Tutorials</h1>
+		<h2><a name="Anchor-Basi-2609" id="Anchor-Basi-2609"></a>Basic:&nbsp;Creating a Waypoint-Walking NPC</h2>
+		<h3>1. Overview</h3>
+		<p>The purpose of this tutorial is to show you how to set up waypoints in your module and configure an NPC to walk those waypoints.  Later tutorials will cover the more generic Trails and Landmarks System; this tutorial will only cover the MT replacement for the BioWare system.</p>
+		<h3>2. Memes</h3>
+		<p>Having an NPC that walks waypoints requires a meme, so this'll be your first introduction to creating a meme for a NPC.</p>
+		<p>Memes are simple to set up.  You simply create one for the NPC, and the MT system takes over from there!  The trick is configuring the meme for your needs.  Let's look at the MeCreateMeme() function:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+					<pre><font color=green>
+// MeCreateMeme 
+// File: h_ai 
+// Create a behavior that is defined in a file or library. 
+// 
+// You can attach variables to this meme object. When the meme runs, it can access 
+// this data through the use of the global variable MEME_SELF. 
+// 
+// sName:     The name of the meme, for example "i_wait" 
+// iPriority: The importance of this behavior: 
+//            PRIO_NONE, PRIO_LOW, PRIO_MEDIUM, PRIO_HIGH, PRIO_VERYHIGH 
+//            The highest priority meme at a given moment will actually run. 
+// iModifier: The value within a priority band, a number from -100 to 100. 
+// iFlags:    These control if the behavior of meme through its lifecycle. Some memes will 
+//            automatically turn on or off flags their own flags, once it is created. 
+//            MEME_RESUME:  if the meme is interrupted, auto resume the behavior, otherwise destroy it. 
+//            MEME_REPEAT:  this causes the meme to loop, some memes *must* loop to work, like i_walkwp 
+//            MEME_INSTANT: do not create this meme, if there are existing higher priority memes 
+//            MEME_IMMEDIATE: create this meme but don't interrupt the current meme 
+//            MEME_CHILDREN: Allow multiple children to run, regardless of their return result. 
+//                           Normally, only one successful child to runs. All other children are destroyed 
+//                           once a children ends without returning FALSE via a call to MeSetMemeResult(); 
+//                           If the meme ends without calling MeSetMemeResult(FALSE) the toolkit assumes 
+//                           the child meme succeeds. 
+//            You can mask flags together, for example: MEME_RESUME | MEME_REPEAT 
+// oParent:   This is either a generator or another meme. </font>
+<font color="blue">object</font> MeCreateMeme(<font color="blue">string</font> sName, <font color="blue">int</font> iPriority = <font color="purple">2</font>, <font color="blue">int</font> iModifier = <font color="purple">0</font>, <font color="blue">int</font> iFlags = <font color="purple">0x10</font> <font color="green">/*MEME_RESUME*/</font>, <font color="blue">object</font> oParent = <font color="blue">OBJECT_INVALID</font>)</pre>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>The priority of the meme is very important.  Only the highest priority meme will run at any given time.  You will probably want to reserve PRIO_HIGH and PRIO_VERYHIGH for combat memes.  For walking waypoints, it's probably OK to use the PRIO_LOW priority, since there's probably a number of things that can cause your NPC to stop walking.  For the Modifier, we'll use the default of 0.  If you wanted to make walking waypoints a bit more or less important to the NCP, you could put in a modifier from -100 to 100, which will help the MT system sort out which meme in a priority band gets run.  We also have to set the Flags to MEME_RESUME and MEME_REPEAT.  The i_walkwp meme requires MEME_REPEAT, so it can be re-used to continue walking the waypoints, and MEME_RESUME means that the meme will not be destroyed if it gets interrupted (by conversation with a PC, for example), but will pick up where it left off.  oParent, we'll leave as the default since this is a very simple example.  More advanced tutorials will cover the situations when you may want to set oParent.</p>
+		<h3>3. The i_walkwp Meme</h3>
+		<p>The i_walkwp meme was designed to be a drop-in replacement for BioWare's WalkWayPoint system.  If you already have the waypoints set up for your NPC based on the default system, you don't have to change a thing!  If not, there are some great resources both at BioWare's Forums (look in the Toolset Forum) and at the NWVault for helping you set up the waypoints.</p>
+		<p>Aside from the default behavior, there are several local variables you can use to customize your MT waypoint behavior.</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+				<div class="code"><font color="blue">int</font>&nbsp;AvoidOtherTrails<br>(Default: FALSE)</div>
+				</td>
+				<td bgcolor="#f7f7f7">
+				If this is TRUE, NPCs will only walk on the trails matching to the current day of time. All other trails will be ignored.
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#f7f7f7">
+				<div class="code"><font color="blue">int</font>&nbsp;NoPrefix<br>(Default: FALSE)</div>
+				</td>
+				<td bgcolor="#f7f7f7">
+				If this is TRUE, standard BioWare prefix is turned off.
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#f7f7f7">
+				<div class="code"><font color="blue">int</font>&nbsp;NoSuffix<br>(Default: FALSE)</div>
+				</td>
+				<td bgcolor="#f7f7f7">
+				If this is TRUE, standard BioWare suffix is turned off.
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#f7f7f7">
+				<div class="code"><font color="blue">int</font>&nbsp;Random<br>(Default: FALSE)</div>
+				</td>
+				<td bgcolor="#f7f7f7">
+				If this is TRUE, the action subject will walk to waypoints at random.
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#f7f7f7">
+				<div class="code"><font color="blue">int</font>&nbsp;Run<br>(Default: FALSE)</div>
+				</td>
+				<td bgcolor="#f7f7f7">
+				If this is TRUE, the action subject will run rather than walk.
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#f7f7f7">
+				<div class="code"><font color="blue">string</font>&nbsp;Tag<br>(Default: NPC Tag)</div>
+				</td>
+				<td bgcolor="#f7f7f7">
+				The tags of the waypoints.
+				</td>
+			</tr>
+		</table>
+		<p>These values can be changed at any time, and the NPC will honor the changes almost immediately (certainly when the NPC reaches its next waypoint). As an illustration, let's configure our NPC to 
+		<h3>4. Putting it together</h3>
+		<p>Here's the OnSpawn script based on the desicions we made earlier:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_ai&quot;
+						<div class="code">
+							<p>void main()<br>
+								{<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;OnSpawn name = '&quot;+_GetName(OBJECT_SELF)+&quot;'&quot;);<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">NPC_SELF = MeInit();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeInstanceOf(NPC_SELF, &quot;generic, townfolk, defender, guard&quot;);</p>
+								<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><font color="red">MeCreateMeme("i_walkwp", PRIO_LOW, 0, (MEME_REPEAT | MEME_RESUME));</font></p>
+							<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+								}</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>Now your NPC should happily walk his or her waypoints!</p>
+	</body>
+
+</html>

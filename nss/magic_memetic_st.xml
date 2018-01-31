@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NwnXml LetoVersion="4.0.19">
+  <Signature Sig="UTM " Ver="V3.2"/>
+  <Field Type="Struct" StructId="-1">
+    <Field Type="ResRef" Label="ResRef" LabelIndex="-1" Value="magic_memetic_st"/>
+    <Field Type="LocString" Label="LocName" LabelIndex="-1" StringRef="-1">
+      <SubString StringId="0" Value="Magic_Memetic_Store"/>
+    </Field>
+    <Field Type="String" Label="Tag" LabelIndex="-1" Value="Magic_Memetic_Store"/>
+    <Field Type="INT" Label="MarkUp" LabelIndex="-1" Value="100"/>
+    <Field Type="INT" Label="MarkDown" LabelIndex="-1" Value="65"/>
+    <Field Type="BYTE" Label="BlackMarket" LabelIndex="-1" Value="0"/>
+    <Field Type="INT" Label="BM_MarkDown" LabelIndex="-1" Value="25"/>
+    <Field Type="INT" Label="IdentifyPrice" LabelIndex="-1" Value="100"/>
+    <Field Type="INT" Label="MaxBuyPrice" LabelIndex="-1" Value="-1"/>
+    <Field Type="INT" Label="StoreGold" LabelIndex="-1" Value="-1"/>
+    <Field Type="ResRef" Label="OnOpenStore" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnStoreClosed" LabelIndex="-1" Value=""/>
+    <Field Type="List" Label="WillNotBuy" LabelIndex="-1"/>
+    <Field Type="List" Label="WillOnlyBuy" LabelIndex="-1"/>
+    <Field Type="List" Label="StoreList" LabelIndex="-1">
+      <Field Type="Struct" StructId="0"/>
+      <Field Type="Struct" StructId="4"/>
+      <Field Type="Struct" StructId="2"/>
+      <Field Type="Struct" StructId="3"/>
+      <Field Type="Struct" StructId="1"/>
+    </Field>
+    <Field Type="BYTE" Label="ID" LabelIndex="-1" Value="0"/>
+    <Field Type="String" Label="Comment" LabelIndex="-1" Value=""/>
+  </Field>
+</NwnXml>

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>Untitled Page</title>
+		<style type="text/css" media="screen"><!--
+body { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+td { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+h1 { color: #36c; font-size: 15px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h2  { color: #f33; font-size: 14px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h3   { color: #06c; font-size: 12px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+a { color: #663 }
+.code { font-size: 11px; font-family: "Courier New", Courier, Monaco, monospace }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<h1><a name="Anchor-Advance-19812" id="Anchor-Advance-19812"></a>Advanced:&nbsp;Implementing the Idle Response in the Generic Class</h1>
+		<h2>1. Overview</h2>
+		<img src="../images/art/man.gif" alt="" width="74" height="139" align="right" border="0" hspace="15">The purpose of this tutorial is to show you how the MT scripts handle situations in a very generic manner. Every NPC should belong to the <i>generic</i> class. It's what adds the standard generators to every NPC. These standard generic generators are responsible for calling the function MeRespond(). This function will allow every other NPC&nbsp;Class to respond to the situation.
+		<p>For example, if the NPC runs into a door, the &quot;Door Blocked&quot; situation is called. If the NPC gets to the end of a combat round and is still engaged in combat, the &quot;Combat&quot; situation is handled.</p>
+		<p>Of course not all situations are directly related to Bioware's callbacks. The generic class creates a low priority <i>Idle</i> meme. This meme sits at the bottom priority band. When no other memes are active this meme triggers the &quot;Idle&quot;&nbsp;situation. This is a great way to tell NPC classes that they're bored and they should do an ambient animation.</p>
+		<h2>2. Creating the Generic Class</h2>
+			All classes are implemented in a script library. If we're creating a library, like <b>lib_generic</b>, we must make sure that we register the library when the module starts up. Edit the cb_module_load script and add:<br>
+		<br>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						DelayCommand(0.0, MeLoadLibrary(&quot;lib_generic&quot;));</div>
+				</td>
+			</tr>
+		</table>
+		<p></p>
+		<p>Here's the shell of the generic class adding an idle meme. We start by adding an _ini and _go to the class named generic. We'll expand the _ini later if we want any default variables to appear on the NPC.<br>
+			<br>
+			Next we add the idle meme, into this library. All it does is start the &quot;Idle&quot;&nbsp;response. The meme doesn't care if it's interrupted or completed so it only has a _go function. Have a look:<br>
+			<br>
+		</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_util&quot;<br>
+						#include &quot;h_library&quot;<br>
+						#include &quot;h_response&quot;
+						<p>void generic_ini()<br>
+							{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;Initialize class='&quot;+MEME_CALLED+&quot;'&quot;, DEBUG_TOOLKIT);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+							}</p>
+						<p>void generic_go()<br>
+							{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;Instanciate class='&quot;+MEME_CALLED+&quot;'&quot;, DEBUG_COREAI);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeCreateMeme(&quot;i_idle&quot;, PRIO_LOW, -100, MEME_REPEAT | MEME_RESUME);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+							}</p>
+						<p><font color="#ff3300">void i_idle_go()<br>
+								{<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;Idle&quot;, DEBUG_COREAI);<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeRespond(&quot;Idle&quot;);<br>
+								<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+								}</font></p>
+						<p>void main()<br>
+							{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;Library name='&quot;+MEME_LIBRARY+&quot;'&quot;);</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">if (MEME_DECLARE_LIBRARY)<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeRegisterClass(&quot;generic&quot;);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeLibraryImplements(&quot;c_generic&quot;, &quot;_ini&quot;, 0x0100+0xff);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeLibraryImplements(&quot;c_generic&quot;, &quot;_go&quot;, 0x0100+0x01);</p>
+						<div class="code">
+							<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeLibraryImplements(&quot;i_idle&quot;, &quot;_go&quot;, 0x0200);</font></p>
+						</div>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">return;<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">}<br>
+						</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">switch (MEME_ENTRYPOINT &amp; 0xff00)<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">case 0x0100: switch (MEME_ENTRYPOINT &amp; 0x00ff)<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">case 0xff: generic_ini(); break;<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">case 0x01: generic_go(); break;<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">} break;<br>
+						</p>
+						<p><font color="#ff3300"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">case 0x0200: i_idle_go(); break;<br>
+							</font><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">}</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3"> _End();<br>
+							}</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p></p>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top" width="35">
+					<div align="right">
+						<img src="../images/icons/alert.gif" alt="" width="15" height="14" align="absmiddle" border="0" hspace="10"></div>
+				</td>
+				<td>The i_idle meme is currently very dangerous. Can you figure out why?&nbsp;Consider what would happen if you had an NPC with only this class. The i_idle meme would run, which is great, right?&nbsp;But there are no response tables for MeRespond() to act on...
+					<p>As a result the idle meme wouldn't do anything -- nothing would be added to the NPC's action queue. The MT&nbsp;scheduler would immediately call i_idle_go() over and over again. You would have a script spinning wildly out of control. Remember whenever you write a meme you should never let this happen.</p>
+					<p>We'll solve this problem in just a bit. Let's continue...</p>
+				</td>
+				<td width="20"></td>
+			</tr>
+		</table>
+		<h2>3. Testing the Generic Idle Situation</h2>
+		<p>Even though that idle meme is dangerous, we can still test this generic class and its idle meme and response table. All we need to do is make a new Memetic&nbsp;NPC and create a new spawn script. This spawn script will register the NPC as a member of the generic class and add a response table:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						#include &quot;h_ai&quot;
+						<p>void main()<br>
+							{<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;OnSpawn name = '&quot;+_GetName(OBJECT_SELF)+&quot;'&quot;);</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">NPC_SELF = MeInit();<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeInstanceOf(NPC_SELF, &quot;generic&quot;);</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(NPC_SELF, &quot;Generic Idle Table&quot;, &quot;DoNothing&quot;, 100, RESPONSE_END);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetActiveResponseTable(&quot;Idle&quot;, &quot;Generic Idle Table&quot;, &quot;&quot;);</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeUpdateActions();<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+							}</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>
+					<p></p>
+					<p><img src="../images/art/diagram1.gif" alt="" width="320" height="162" align="right" border="0">So what this should do is construct an NPC that belongs to the generic class. This class will make an i_idle meme on the NPC. When that meme runs, it will call the function MeRespond(&quot;Idle&quot;) which will use NPC's currently active response table -- &quot;Generic Idle Table&quot; which will activate the DoNothing response entry.</p>
+					<p>Unfortunately what we've done also blocks every other class's response from happening. You see, by setting the table on NPC_SELF we have added an <i>override</i>, not a <i>default</i>. What we really want to do is add a default response in the <i>generic</i> class.</p>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top" width="35">
+					<div align="right">
+						<img src="../images/icons/alert.gif" alt="" width="15" height="14" align="absmiddle" border="0" hspace="10"></div>
+				</td>
+				<td>The function MeRespond(string sSituation) has a very orderly way of processing responses. It starts at the NPC and then moves to each of its classes, activating each response table. If any response returns a valid object, it stops the progression. In our example the library function DoNothing returns a valid object and causes the NPC to stand around. By returning the valid object it blocks any lesser tables from activating.</td>
+				<td width="20"></td>
+			</tr>
+		</table>
+		<h2>4. Adding Default Idle Behaviors</h2>
+		<p>Ok, so adding a response table to the NPC_SELF is an override and adding a response table to a class isn't. Luckily it's really easy to add your response table to your class -- just move it to <b>generic_ini()</b>. Since generic is the <i>first</i> class the NPC is an instance of, it will be the <i>last</i> table to be processed. As the users add the NPC to more and more classes, each class can provide its own responses. Here's the new <b>generic_ini()</b>:</p>
+		<table width="90%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#ff3300">
+			<tr>
+				<td bgcolor="#f7f7f7">
+					<div class="code">
+						void generic_ini()<br>
+						{<br>
+						<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_Start(&quot;Initialize class='&quot;+MEME_CALLED+&quot;'&quot;, DEBUG_TOOLKIT);
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeAddResponse(<font color="#ff3300">MEME_SELF</font>, &quot;Generic Idle Table&quot;, &quot;DoNothing&quot;, 100, RESPONSE_END);<br>
+							<img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">MeSetActiveResponseTable(&quot;Idle&quot;, &quot;Generic Idle Table&quot;, <font color="#ff3300">&quot;*&quot;</font>);</p>
+						<p><img src="../images/spacer.gif" alt="" width="10" height="10" border="0" hspace="3">_End();<br>
+							}</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>Take notice of the two subtle changes. First, we're no longer adding the table to the NPC. In fact, when the _ini function is called, our NPC may not even exist yet. Now we're adding the table to the global <b>MEME_SELF</b> -- the object that represents the <i>class</i>. Also, you notice that<b> MeSetActiveResponseTable()</b> is called with the <b>&quot;*&quot;</b> parameter. This could also pass &quot;generic&quot;. The asterisk tells the function to figure out the class automatically. This is actually the default value of this function.</p>
+		<h2>4. Test Your NPC</h2>
+		<p>Remember to remove the idle table definition in the spawn script. Once you've done this, you should have a fully working NPC that does nothing. Awful lot of work just to do nothing, huh? Well luckily this nothing is really flexible. Now any class can add responses to their own tables and set a table to response to the <i>Idle</i> situation. Class builders will only need to know how to make a class stud and call <b>MeAddResponse()</b> and <b>MeSetActiveResponseTable()</b>.</p>
+		<p>Hopefully this tutorial has reinforced how classes and response tables work as well as exposed how the generic class is implemented. By doing this work up front, sensible default behaviors can be established and new responses can be dynamically accumulated.</p>
+	</body>
+
+</html>

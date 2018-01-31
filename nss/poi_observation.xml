@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NwnXml LetoVersion="4.0.19">
+  <Signature Sig="UTP " Ver="V3.2"/>
+  <Field Type="Struct" StructId="-1">
+    <Field Type="String" Label="Tag" LabelIndex="-1" Value="poi_observation"/>
+    <Field Type="LocString" Label="LocName" LabelIndex="-1" StringRef="-1">
+      <SubString StringId="0" Value="Observation"/>
+    </Field>
+    <Field Type="LocString" Label="Description" LabelIndex="-1" StringRef="-1"/>
+    <Field Type="ResRef" Label="TemplateResRef" LabelIndex="-1" Value="poi_observation"/>
+    <Field Type="BYTE" Label="AutoRemoveKey" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="CloseLockDC" LabelIndex="-1" Value="0"/>
+    <Field Type="ResRef" Label="Conversation" LabelIndex="-1" Value=""/>
+    <Field Type="BYTE" Label="Interruptable" LabelIndex="-1" Value="1"/>
+    <Field Type="DWORD" Label="Faction" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="Plot" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="KeyRequired" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="Lockable" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="Locked" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="OpenLockDC" LabelIndex="-1" Value="0"/>
+    <Field Type="WORD" Label="PortraitId" LabelIndex="-1" Value="129"/>
+    <Field Type="BYTE" Label="TrapDetectable" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="TrapDetectDC" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="TrapDisarmable" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="DisarmDC" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="TrapFlag" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="TrapOneShot" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="TrapType" LabelIndex="-1" Value="0"/>
+    <Field Type="String" Label="KeyName" LabelIndex="-1" Value=""/>
+    <Field Type="BYTE" Label="AnimationState" LabelIndex="-1" Value="0"/>
+    <Field Type="DWORD" Label="Appearance" LabelIndex="-1" Value="157"/>
+    <Field Type="SHORT" Label="HP" LabelIndex="-1" Value="10"/>
+    <Field Type="SHORT" Label="CurrentHP" LabelIndex="-1" Value="10"/>
+    <Field Type="BYTE" Label="Hardness" LabelIndex="-1" Value="5"/>
+    <Field Type="BYTE" Label="Fort" LabelIndex="-1" Value="5"/>
+    <Field Type="BYTE" Label="Ref" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="Will" LabelIndex="-1" Value="0"/>
+    <Field Type="ResRef" Label="OnClosed" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnDamaged" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnDeath" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnDisarm" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnHeartbeat" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnLock" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnMeleeAttacked" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnOpen" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnSpellCastAt" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnTrapTriggered" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnUnlock" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnUserDefined" LabelIndex="-1" Value=""/>
+    <Field Type="BYTE" Label="HasInventory" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="BodyBag" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="Static" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="Type" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="Useable" LabelIndex="-1" Value="0"/>
+    <Field Type="ResRef" Label="OnInvDisturbed" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnUsed" LabelIndex="-1" Value=""/>
+    <Field Type="BYTE" Label="PaletteID" LabelIndex="-1" Value="0"/>
+    <Field Type="String" Label="Comment" LabelIndex="-1" Value=""/>
+  </Field>
+</NwnXml>

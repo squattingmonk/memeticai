@@ -1,0 +1,29 @@
+XML Debug Batch File
+This formats Bioware's logs to be readable with Internet Explorer.
+
+Installation & Usage
+
+1. Copy the files into your NWN/logs directory.
+2. Set the debug level of your module or add your own _Start()
+   and _End() calls. Refer to the documentation for more information.
+3. Run your module, exit the client application.
+4. Run the log.bat batch script. You should see a log.xml file.
+5. View the log.xml file with an XML Viewier, or Internet Explorer,
+   you should have a collapsable trace log.
+
+Additional Notes
+
+ * If you are running in server mode, you may need to change the
+   logfile name referenced in the log.bat script. You start your
+   module using the standalone server application found in your
+   NWN directory. This is usually done to quickly run start/stop
+   your module and inspect a specific scenerio you're debugging.
+ 
+ * The NWN client only clears the log when you exit from the
+   client entirely. If you run your module in a windowed mode
+   and you restart the module you are debuggin, you will have your
+   debug appended to the log. This may not be what you want.
+ 
+ * If there are errors in the XML Internet Explorer will show the
+   error at the end of the file. This usually occurs when a function
+   calls return; before _End();

@@ -1,0 +1,46 @@
+MemeticAI Toolkit Install Notes
+
+Requirements
+
+* This project assumes you have Bioware's Neverwinter Nights game engine installed.
+  Please visit http://nwn.bioware.com/ for information about Neverwinter Nights.
+
+* The toolkit does not require Bioware's SoU or HoU expansion pack.
+  It does not require any hack packs, although a few predefined blueprints must exist.
+  These blueprints are available in the /erf directory.
+  
+Installation
+
+1. Using Bioware's toolkit, open your existing module, or start a new module.
+
+2. Find your NWN modules\temp0 directory. (c:\NeverwinterNights\nwn\modules\temp0)
+   This directory has the files from your module. It is created automatically when 
+   you open your module in the toolkit.
+  
+3. Copy the contents of nss/* to your temp0\ directory. You should have checked this
+   directory out from the CVS repository.
+
+4. Import the base erf located in /erf. This includes a few items you will never use
+   and a special area you will never visit. They are used by the toolkit.
+
+5. Attach the cb_* scripts to your module and area callbacks. If you are using your own
+   binding system, like HCR, you may want to add ExecuteScript("cb_..."); to your
+   existing callback scripts. The critical callback is OnModuleLoad found in the module
+   properties dialog.
+
+6. Go to your module properties dialog and enable script caching. Add all of the lib_*
+   scripts. Add all of the h_* scripts. This will dramatically improve performance.
+  
+7. Finally, you can drop out a creature and attach the cb_* scripts. There are several
+   example spawn scripts prefixed with s_.
+
+Additional Help
+
+* Send Bill an email - that's me - bbull@memeticai.org. Hello, nice to meet you.
+  If you've come this far, odds are I'd be happy to hear from you.
+
+* Please visit the website http://www.memeticai.org/ for the most up to date docs
+  and installation information.
+  
+* Please join us on irc at irc.neverwinterconnections.com #meme to speak with
+  a human.

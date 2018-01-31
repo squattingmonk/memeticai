@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NwnXml LetoVersion="4.0.19">
+  <Signature Sig="ARE " Ver="V3.2"/>
+  <Field Type="Struct" StructId="-1">
+    <Field Type="INT" Label="ID" LabelIndex="-1" Value="-1"/>
+    <Field Type="INT" Label="Creator_ID" LabelIndex="-1" Value="-1"/>
+    <Field Type="DWORD" Label="Version" LabelIndex="-1" Value="9"/>
+    <Field Type="String" Label="Tag" LabelIndex="-1" Value="MemeticArea"/>
+    <Field Type="LocString" Label="Name" LabelIndex="-1" StringRef="-1">
+      <SubString StringId="0" Value="Magic Memetic Area"/>
+    </Field>
+    <Field Type="ResRef" Label="ResRef" LabelIndex="-1" Value="magic_memetic_ar"/>
+    <Field Type="String" Label="Comments" LabelIndex="-1" Value="This is a dummy area that is used for holding store objects. The Memetic Toolkit creates objects into stores to keep memory efficient and stop variables from being overridden. Assume that every NPC will have a &#34;hidden&#34; store in this area. Inside of that store you will find many bags that represent &#34;memetic objects&#34;. These bags have variables on them and are created and destroyed as needed."/>
+    <Field Type="List" Label="Expansion_List" LabelIndex="-1"/>
+    <Field Type="DWORD" Label="Flags" LabelIndex="-1" Value="4"/>
+    <Field Type="INT" Label="ModSpotCheck" LabelIndex="-1" Value="0"/>
+    <Field Type="INT" Label="ModListenCheck" LabelIndex="-1" Value="0"/>
+    <Field Type="DWORD" Label="MoonAmbientColor" LabelIndex="-1" Value="0"/>
+    <Field Type="DWORD" Label="MoonDiffuseColor" LabelIndex="-1" Value="13132900"/>
+    <Field Type="BYTE" Label="MoonFogAmount" LabelIndex="-1" Value="0"/>
+    <Field Type="DWORD" Label="MoonFogColor" LabelIndex="-1" Value="6566450"/>
+    <Field Type="BYTE" Label="MoonShadows" LabelIndex="-1" Value="1"/>
+    <Field Type="DWORD" Label="SunAmbientColor" LabelIndex="-1" Value="6566450"/>
+    <Field Type="DWORD" Label="SunDiffuseColor" LabelIndex="-1" Value="16777215"/>
+    <Field Type="BYTE" Label="SunFogAmount" LabelIndex="-1" Value="0"/>
+    <Field Type="DWORD" Label="SunFogColor" LabelIndex="-1" Value="9535080"/>
+    <Field Type="BYTE" Label="SunShadows" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="IsNight" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="LightingScheme" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="ShadowOpacity" LabelIndex="-1" Value="50"/>
+    <Field Type="FLOAT" Label="FogClipDist" LabelIndex="-1" Value="45"/>
+    <Field Type="BYTE" Label="SkyBox" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="DayNightCycle" LabelIndex="-1" Value="1"/>
+    <Field Type="INT" Label="ChanceRain" LabelIndex="-1" Value="0"/>
+    <Field Type="INT" Label="ChanceSnow" LabelIndex="-1" Value="0"/>
+    <Field Type="INT" Label="ChanceLightning" LabelIndex="-1" Value="0"/>
+    <Field Type="INT" Label="WindPower" LabelIndex="-1" Value="0"/>
+    <Field Type="WORD" Label="LoadScreenID" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="PlayerVsPlayer" LabelIndex="-1" Value="3"/>
+    <Field Type="BYTE" Label="NoRest" LabelIndex="-1" Value="0"/>
+    <Field Type="INT" Label="Width" LabelIndex="-1" Value="8"/>
+    <Field Type="INT" Label="Height" LabelIndex="-1" Value="8"/>
+    <Field Type="ResRef" Label="OnEnter" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnExit" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnHeartbeat" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="OnUserDefined" LabelIndex="-1" Value=""/>
+    <Field Type="ResRef" Label="Tileset" LabelIndex="-1" Value="tms01"/>
+    <Field Type="List" Label="Tile_List" LabelIndex="-1">
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="1"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="0"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="3"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+      <Field Type="Struct" StructId="1">
+        <Field Type="INT" Label="Tile_ID" LabelIndex="-1" Value="12"/>
+        <Field Type="INT" Label="Tile_Orientation" LabelIndex="-1" Value="2"/>
+        <Field Type="INT" Label="Tile_Height" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_MainLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight1" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_SrcLight2" LabelIndex="-1" Value="0"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop1" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop2" LabelIndex="-1" Value="1"/>
+        <Field Type="BYTE" Label="Tile_AnimLoop3" LabelIndex="-1" Value="1"/>
+      </Field>
+    </Field>
+  </Field>
+</NwnXml>

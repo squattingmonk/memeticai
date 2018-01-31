@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<title>Untitled Page</title>
+		<style type="text/css" media="screen"><!--
+body { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+td { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif }
+h1 { color: #36c; font-size: 15px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h2  { color: #f33; font-size: 14px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+h3   { color: #06c; font-size: 12px; font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif; font-weight: bold }
+a { color: #663 }
+.code { font-size: 11px; font-family: "Courier New", Courier, Monaco, monospace }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<h1><img src="images/icons/down.gif" alt="" width="15" height="14" align="absmiddle" border="0" vspace="4">&nbsp;<a name="Anchor-38183" id="Anchor-38183"></a>MemeticAI Toolkit: Installation</h1>
+		<p><a href="#Anchor-33955">What is it?<br>
+			</a><a href="#Anchor-37360">Getting Help<br>
+			</a><a href="#Anchor-41736">Start a New Module<br>
+			</a><a href="#Anchor-45752">Adding the Toolkit to an Exitising Module<br>
+			</a><a href="#Anchor-Settin-9915">Setting Up Memetic NPCs<br>
+				Setting Up Conversations<br>
+			</a><a href="#Anchor-58100">Breakdown of Scripts</a></p>
+		<h2><a name="Anchor-33955" id="Anchor-33955"></a>What is it?</h2>
+		<p><img src="images/art/dog.gif" alt="" width="94" height="79" align="right" border="0">The MemeticAI&nbsp;Toolkit (MT) is a set of scripts (and a few object blueprints) used to make realistic NPCs and NPC behavior classes. These &quot;memetic NPCs&quot; can be easily configured by a builder and <i>extremely</i> customized by a developer. The MT project has been designed to promote the assembly of modular NPC behaviors, without a lot of complicated scripting.&nbsp;Builders can change an NPC's behavior by adding them to a behavior class, or by adjusting some variables directly on the NPC, via Bioware's Toolkit.</p>
+		<p>When the MT&nbsp;scripts have been added to your module, you will have a complete replacement of an NPC's callback scripts, plus a large collection of generally useful NWScript functions. You can then import memetic NPCs from the <a href="http://www.memeticai.org/" target="_blank">MT website</a> (http://www.memeticai.org/) or follow the tutorials to build your own memetic NPCs from scratch.</p>
+		<p>The MT&nbsp;project has documentation for builders and developers. Separate documentation for all of the MT NWScript functions can be found on the Memetic Website or via the Memetic version of the NWNLexicon (http://www.nwnlexicon.com/).</p>
+		<h2><a name="Anchor-37360" id="Anchor-37360"></a>Getting Help</h2>
+		<p>We understand that it's hard to get started using someone else's code and would like help you out. The development team can help you get through the installation of the MT&nbsp;scripts and can be reached online:</p>
+		<table border="0" cellspacing="15" cellpadding="0" align="center">
+			<tr>
+				<td valign="top" nowrap width="50%">
+					<div align="left">
+						<b>Memetic Website</b><br>
+						<a href="http://www.memeticai.org/">http://www.memeticai.org/ </a>
+						<p><b>Memetic Forums</b><br>
+							<a href="http://www.memeticai.org/forums/">http://www.memeticai.org/forums/</a></p>
+					</div>
+				</td>
+				<td valign="top" nowrap><b>Chat Online</b><br>
+					server:&nbsp;irc.nwconnections.com<br>
+					channel:&nbsp;#meme
+					<p><a href="http://www.visualirc.net/">Click here for an IRC client.</a></p>
+				</td>
+			</tr>
+		</table>
+		<h2><a name="Anchor-41736" id="Anchor-41736"></a>Starting a New Module</h2>
+		<p>The fastest way to start a MemeticAI&nbsp;Toolkit (MT) project is to <a href="http://www.memeticai.org/download/base.html">download a base module</a> from the <a href="http://www.memeticai.org/" target="_blank">MT website</a> . This module will have scripts to the module's callback dialog and will have one area called &quot;Meme&nbsp;Vault&quot;. This is a dummy area used by the MT scripts to store temporary objects.</p>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top" width="35">
+					<div align="right">
+						<img src="images/icons/alert.gif" alt="" width="15" height="14" align="absmiddle" border="0" hspace="10"></div>
+				</td>
+				<td>Each time you add a new area to your module you will need to add the scripts <b>cb_area_enter</b> and <b>cb_area_exit </b>to the respective area callbacks. You can find this in the <b>Edit<img src="images/icons/arrow.gif" alt="" width="9" height="7" align="absmiddle" border="0" hspace="5">Area Properties</b> menu.</td>
+				<td width="20"></td>
+			</tr>
+		</table>
+		<p>Once you have the base module, you are ready to begin developing with the MT scripts. You may want to download a prewritten Memetic NPC or follow through a tutorial. There are many basic tutorials that will show you how to have your NPCs react to players, perform idle animations, and navigate your module using trails and landmarks.</p>
+		<h2><a name="Anchor-45752" id="Anchor-45752"></a>Adding the Toolkit to an Existing Module</h2>
+		<p>Adding the MT&nbsp;scripts to your module may involve a bit work, depending on how far you've developed your module:</p>
+		<ol>
+			<li><a href="http://www.memeticai.org/download/erf.html">Download the ERF version of the MT scripts</a> and import it into your module.<br>
+				You will notice a new area and many scripts have been added to your module.<br>
+				You can ignore the area -- it's used to hold temporary objects.<br>
+				<br>
+			<li>Attach the <b>cb_mod_onload</b> to your module. See below.<br>
+				<br>
+			<li>Attach <b>cb_area_enter</b> and <b>cb_area_exit </b>scripts each of your areas.<br>
+				You will need to do this for each area you make.&nbsp;This is used to notify the NPCs of entering players.<br>
+				<br>
+			<li>Add <b>cb_talk_abort</b> and <b>cb_talk_end</b> scripts to any dialogs used by a Memetic NPC.<br>
+				This is used to allow Memetic&nbsp;NPCs to resume without a heartbeat. See below.<br>
+				<br>
+			<li>Download an import a pre-made memetic NPC or follow a tutorial to build you own.<br>
+				Refer to the <a href="#Anchor-Settin-9915">Setting Up a Memetic&nbsp;NPC</a> for more information.<br>
+				<br>
+			
+		</ol>
+		<table width="90%" align="center">
+			<tr>
+				<td>
+					<h3><img src="images/dialogs/onload.gif" alt="" width="241" height="318" align="right" border="0" hspace="15">Module Startup Script</h3>
+					<p>There is a small amount of setup to be done when a module starts up. To do this, the script, cb_mod_onload, needs to be added to the OnModuleLoad module event.</p>
+					<p>Within this script a number of things are done:</p>
+					<ol>
+						<li>Areas are registered for the optional trail and landmark system.<br>
+							<br>
+						<li>The landmark system is initialized and the routing table is built.<br>
+							<br>
+						<li>Libraries are loaded using MeLoadLibraries().<br>
+							<br>
+						<li>Emitters may be defined, and attached to objects using MeAddEmitterByTag().<br>
+							<br>
+						<li>Moments are schedule so that NPCs can have daily routines and scripts can be periodically run.
+					</ol>
+				</td>
+			</tr>
+		</table>
+		<p></p>
+		<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+			<tr>
+				<td>
+					<h3><img src="images/dialogs/cache.gif" alt="" width="241" height="318" align="right" border="0" hspace="15">Script Caching</h3>
+					<p>Bioware has recently introduced a new feature - script caching. This is a highly recommend feature that greatly improves the performance of the MT&nbsp;scripts. To enable script caching you will need to add each script that you want cached.</p>
+					<p>If you are using a premade memetic module these scripts will already be setup. If you are using an ERF you will need to add the all the default memetic scripts that are frequently called. It is generally recommended that you add each file with the prefix cb_ and lib_. These are the callback scripts and the libraries with the memetic functions that frequently called.</p>
+					<p>As you write your own libraries with your memetic functions and objects, remember to add these to this panel.</p>
+					<h2></h2>
+				</td>
+			</tr>
+		</table>
+		<p></p>
+		<table width="100%" align="center">
+			<tr>
+				<td>
+					<h2><a name="Anchor-Settin-9915" id="Anchor-Settin-9915"></a>Setting Up a Memetic&nbsp;NPC</h2>
+					<p><img src="images/dialogs/npcscript.gif" alt="" width="224" height="318" align="right" border="0" hspace="15">Once you have installed the MT&nbsp;scripts, you can either download a premade NPC from the <a href="http://www.memeticai.org/download/">memetic website</a> or create your own. If you're going to create you own NPCs you will need to start by setting up their callback scripts.</p>
+					<p>Every NPC needs to have its callbacks replaced with memetic callbacks. These memetic versions all have the prefix <b>cb_.</b> They have very little code inside them. It is there job to call functions inside of your libraries.</p>
+					<p>Since there are several callbacks, it may be tedious to setup a memetic NPC. Instead, you may want to download the <a href="http://www.memeticai.org/download/view.html?file=59">Memetic Callback Script Templates</a>. These are premade sets of callbacks that can be attached by clicking the &quot;Load Script Set&quot; button. If you are going to create NPCs without templating them, this is very handy.</p>
+					<p>Memetic NPCs do not require a heartbeat script. In fact it is recommended that you don't attach cb_heartbeat. But also bear in mind that some day you may add a &quot;behaviour generator&quot; that requires a heartbeat callback. At this time, the toolkit does not ship with any of these and it's probably best just to leave it out. This will give you a performance increase.</p>
+					<p>Once you have done this you should go to the tutorial documentation and follow one of the basic tutorials.</p>
+				</td>
+			</tr>
+		</table>
+		<h2><a name="Anchor-51711" id="Anchor-51711"></a>Setting Up Conversations</h2>
+		<p>You must do a small amount of work to allow your Memetic NPCs to handle conversations properly without the use of a heartbeat script. Unfortunately there is no way around this, otherwise your NPC will not resume his behavior once a conversation ends. When a conversation ends normally you should call <b>cb_talk_end</b>. If the user aborts the conversation you should call <b>cb_talk_abort</b>.&nbsp;You can find these fields in the conversation dialog, at the bottom right hand panel in the &quot;Current File&quot;&nbsp;tab:</p>
+		<div align="center">
+			<p><img src="images/dialogs/conversation.gif" alt="" width="388" height="338" border="0"></p>
+		</div>
+		<h2><a name="Anchor-58100" id="Anchor-58100"></a>Breakdown of Scripts</h2>
+		It's probably helpful to understand what is really in the MemeticAI&nbsp;Toolkit. After you've imported the base ERF or opened a base module, you will find a lot of new scripts and a few new items. We have taken care to follow a naming convention to keep these files organized. Here's a breakdown of the scripts:<br>
+		<br>
+		<table width="100%" border="0" cellspacing="7" cellpadding="7" align="center">
+			<tr>
+				<td valign="top" bgcolor="#f7f7f7" width="33%">
+					<div align="left">
+						<h3>Header Files</h3>
+						<p><b>h_ai<br>
+									h_private<br>
+									h_constants<br>
+							</b>These define the root of the MT scripts. You will only need to include <b>h_ai</b> to use any part of the system.</p>
+						<div align="left">
+							<p><b>h_class</b><br>
+									This contains the code create behavior classes and to make your NPC a member of a class.</p>
+						</div>
+						<div align="left">
+							<b>h_debug<br>
+							</b>This contains the code to write XML&nbsp;debug statements to your log file.</div>
+						<p><b>h_event</b><br>
+								This contains code to send messages to an NPC or NPCs that have subscribed to a channel.</p>
+						<p><b>h_library</b><br>
+								This contains code to embed functions into a single script and call those functions by name.</p>
+						<p><b>h_list</b><br>
+								This contains utility code to manage lists of data.</p>
+						<p><b>h_poi</b><br>
+								This contains the code to create and manage dynamic trigger areas and PC observation notification AoEs.</p>
+						<p><b>h_respose</b><br>
+								This contains the code to respond to a situation via response tables by calling library functions.</p>
+						<p><b>h_time</b><br>
+							This contains the code to handle time in an NWN&nbsp;module, since Game Time and Real Time aren't the same thing.</p>
+						<p><b>h_util</b><br>
+								This contains various utility code for handling variables and libraries.</p>
+						<div align="left">
+							<p><b>h_landmark<br>
+										h_landmark_cli<br>
+										h_landmark_com<br>
+										h_landmark_ini</b><br>
+									These scripts contain code for building and analyzing trail datastructures.</p>
+							<p><b>h_util_combat<br>
+										h_setweapons</b><br>
+									These scripts contain code for setting up and analyzing combat sitatuations.</p>
+						</div>
+					</div>
+				</td>
+				<td valign="top" bgcolor="#eaeaea" width="33%">
+					<h3><b>Libraries</b></h3>
+					<p><b>lib_ambient<br>
+								lib_ambient_f<br>
+						</b>This library has idle animation classes and functions to do simple, idle things.</p>
+					<p><b>lib_avoidlight</b><br>
+							This library contains a class and event system to flee from light.</p>
+					<p><b>lib_classes</b><br>
+							This library contains based classes and example classes for common NPC behavior.</p>
+					<p><b>lib_combat<br>
+								lib_combat_f<br>
+								lib_skillcheck<br>
+						</b>These libraries contains the basic combat meme and reusable functions that can be added to a class response table.</p>
+					<p><b>lib_converse</b><br>
+							This library contains the basic objects that allow an NPC to talk in a variety of ways.</p>
+					<p><b>lib_door<br>
+						</b>This library contains door handling objects and functions for handling locked, or closed doors.</p>
+					<p><b>lib_events<br>
+						</b>This contains a few standard objects used to handle common messages, like setting the AI&nbsp;level, or daily state.</p>
+					<p><b>lib_generators<br>
+						</b>This contains a few standard objects for reacting to callbacks, like perception or death.</p>
+					<p><b>lib_landmark<br>
+						</b>This contains a few standard objects for navigating across areas using a trail system.</p>
+					<p><b>lib_movement<br>
+						</b>This contains a meme and code used to efficiently move an NPC, working around pathfinding bugs.</p>
+					<p><b>lib_memes<br>
+						</b>This contains an assortment of basic demonstration memes to create persistant actions.</p>
+					<p><b>lib_mimic<br>
+						</b>This library contains an example of a event for having two NPCs share what they hear.</p>
+					<p><b>lib_observer<br>
+						</b>This library contains an example of an active tracking behavior for watching troublesome players.</p>
+				</td>
+				<td valign="top" bgcolor="#f7f7f7" width="33%">
+					<h3><b>Callbacks</b></h3>
+					<p><b>cb_mod_onload<br>
+						</b>This script is attached to your module to setup the MT system. You will have to modify it when you want to add new libraries or set up schedules.<b> </b></p>
+					<p><b>cb_area_enter<br>
+					      cb_area_exit<br>
+						</b>These scripts are attached to your areas to notify NPCs that people have entered or left an area via a message. This is used to dynamically adjust the NPC's AI.</p>
+					<p><b>cb_attacked<br>
+								cb_blocked<br>
+								cb_combat_end<br>
+								cb_conversation<br>
+								cb_damaged<br>
+								cb_death<br>
+								cb_disturbed<br>
+								cb_heartbeat<br>
+								cb_perception<br>
+								cb_rested<br>
+								cb_spellcast<br>
+								cb_userdefine</b><br>
+							These are the scripts that replace your Bioware's NPC AI. These scripts do nothing, except call the registered MT scripts contained in the libraries.</p>
+					<p><b>cb_item_drop<br>
+								cb_item_get<br>
+								cb_item_use<br>
+						</b>These are simple dispatcher scripts added to your module to execute a script matching your item's tag.</p>
+					<p><b>cb_poi_enter<br>
+								cb_poi_leave</b><br>
+							These are callbacks the MT's dynamic Area of Effect system, called Points of Interest. You don't need to do anything with these.</p>
+					<p><b>cb_talk_abort<br>
+								cb_talk_end</b><br>
+							These callbacks must be attached to any conversation that is used by a Memetic NPC. These are required to correctly end a conversation and resume acting properly.</p>
+					<h3><b>Conversation Conditionals</b></h3>
+					<p><b>sc_false</b><br>
+							This starting conditional simply returns false. It is required for a Memetic NPC to end a conversation.</p>
+					<p></p>
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>

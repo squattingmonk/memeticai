@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NwnXml LetoVersion="4.0.19">
+  <Signature Sig="UTI " Ver="V3.2"/>
+  <Field Type="Struct" StructId="-1">
+    <Field Type="ResRef" Label="TemplateResRef" LabelIndex="-1" Value="magic_memetic_ba"/>
+    <Field Type="INT" Label="BaseItem" LabelIndex="-1" Value="66"/>
+    <Field Type="LocString" Label="LocalizedName" LabelIndex="-1" StringRef="-1">
+      <SubString StringId="0" Value="Magic_Memetic_Bag"/>
+    </Field>
+    <Field Type="LocString" Label="Description" LabelIndex="-1" StringRef="-1"/>
+    <Field Type="LocString" Label="DescIdentified" LabelIndex="-1" StringRef="-1"/>
+    <Field Type="String" Label="Tag" LabelIndex="-1" Value="Magic_Memetic_Bag"/>
+    <Field Type="BYTE" Label="Charges" LabelIndex="-1" Value="0"/>
+    <Field Type="DWORD" Label="Cost" LabelIndex="-1" Value="15"/>
+    <Field Type="BYTE" Label="Stolen" LabelIndex="-1" Value="0"/>
+    <Field Type="WORD" Label="StackSize" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="Plot" LabelIndex="-1" Value="1"/>
+    <Field Type="DWORD" Label="AddCost" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="Identified" LabelIndex="-1" Value="1"/>
+    <Field Type="BYTE" Label="Cursed" LabelIndex="-1" Value="0"/>
+    <Field Type="BYTE" Label="ModelPart1" LabelIndex="-1" Value="1"/>
+    <Field Type="List" Label="PropertiesList" LabelIndex="-1"/>
+    <Field Type="BYTE" Label="PaletteID" LabelIndex="-1" Value="0"/>
+    <Field Type="String" Label="Comment" LabelIndex="-1" Value=""/>
+  </Field>
+</NwnXml>

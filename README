@@ -1,0 +1,158 @@
+The MemeticAI Toolkit
+
+March 20, 2004
+
+In case you haven't caught on, this project is very open, flexible
+collection of scripts for building responsive, modular NPCs. One
+of the challenges and exciting benefits of this framework is that
+you can create a single behavior system in many different ways.
+Unfortunately this can be a daunting task  -- especially for those
+who are not familiar with software frameworks.
+
+Time and time again we see each solution shaped by the specific
+circumstance:
+
+* What is the technical skill of the user?
+* What are the efficiency requirements of the module?
+* Is this for a single-player or multi-player environment?
+* How much time does the user want to put into the development?
+* Will this be contributed back to the MemeticAI project?
+* Can this behavior be combined with other behaviors?
+
+To help develop a roadmap for learning and using the toolkit, several 
+types of people have been considered. Let's call them builders,
+module developers, memetic developers, and core developers.
+
+1. Builders
+
+We've assumed that builders have little scripting knowledge and will
+generally want to make Memetic NPCs by dropping out prefabricated
+creatures, adjusting variables through the toolkit Variable Dialog,
+or by adjusting sample spawn scripts.
+
+ * Builders should immediately have blueprints of memetic NPCs and be able
+   to understand that classes of behaviors can be assembled to influence
+   how the NPC functions.
+
+ * They will need to learn about the NPC's public variables. These are
+   high level variables for setting common things like schedules, classes
+   and text responses. Eventaully, we'll provide a web-based tool to
+   browser and document these variable.
+
+ * They will need to learn about the notation used by MeGetConfString().
+   This is just a shorthand for mapping an NPC's variable to a variable
+   on the module object. It's quite useful if you have a set of NPCs that
+   need to share a talk table.
+ 
+2. Module Developers
+
+Module developers generally have programming ability in C or NWScript
+and are generally task-oriented. We assume they've read over the
+toolkit's APIs and want to take real control of their NPCs. These folks
+will probably need to progress through the steep learning curve in stages:
+
+  * They should have a good understanding of the generic NPC classes
+    and that they respond to things like combat and doors with response
+    tables and generators.
+
+  * They should be pointed to the response tables first to do a
+    variety of simple things including idle activities and combat
+    strategies. This involves learning how to make a function in a library.
+
+  * They'll want to learn how to author a class. To start, it's probably
+    best to model them after an existing class and use pre-written memes,
+    or response tables.
+
+  * They should understand memes, priorities, and how memetic objects
+    are stored in a library with registered member functions. This gets
+    them on the road to implement any memetic object. It really requires
+    that they understand MEME_SELF and NPC_SELF before they go much
+    further.
+
+3. Memetic Developers
+
+At some point, module developers will be comfortable with building
+layered response systems and will start delving deeper into the toolkit.
+Many of the APIs will just have to be learned as they go. In particular
+the falling topics should be addressed:
+
+  * Debugging via the XML log system is enormously helpful. This cannot
+    be stressed enough. A Windows utility can be found in the utils/
+    directory in CVS to help format the log file for viewing in IE.
+    Once they're developing generators, events, or preempting memes
+    they really should be looking at the formatted logs.
+  
+  * Sure, lists can be picked up by anyone, but temporary variables
+    and non-linear time routines are just as critical. These should be
+    introduced to influence the development module-independent code.
+    What's written for one module may not best for all modules.
+  
+  * Finally, communication, synchronization and module-wide scheduling
+    will require that the developer learn about events, message passing,
+    channels and the moment-based scheduler. These are tremendously neat
+    things used inconjuction with Points of Interest (PoIs) and quest
+    systems.
+    
+4. Core Toolkit Developers
+
+Of course there's lots of us who have no real desire to make a module. :)
+We're stuck in the pattern of reading every line of source, trying to
+figure out what makes things tick, before we ever trust that it should be
+used. Well, if you're in this camp it's nice to have another set of eyes
+looking over the code. There are still bugs to be found, and we're all
+open to explain why something's done a particular way.
+
+Nevertheless, there's a progression for core developers as well:
+
+  * The first phase most people go through the "is it efficient" syndrome.
+    Experienced developers will note that I've implemented C++ style
+    inheritance, with variable binding and mapping, declaration tables,
+    list handling and a slew of other things in a btye compiled language
+    without arrays. Yeah, it's rough on the CPU, get over it. Everyone's
+    asked themselves, "Just how many cycles is "MEME_"+"XYZ"+IntToString(n);?"
+    or "How many hash lookups does MeGetStringRef() really do?" and
+    "You create a hidden in-game object to represent a data structure!?"
+
+    The truth is, if you spend too long thinking about it, you'll probably
+    feel ill and lose all the motivation to do great things. Just let it
+    go and be impressed that modern CPUs are so darn fast. We've done our
+    best to trade RAM for CPU wherever possible and have done some
+    benchmarking to choose the most efficient path, wherever possible.
+    (In general, rational thought was put into the design and implementation
+    of the project.)
+    
+  * Continuing past the first phase, most folks want to know how the
+    scheduler works. They'll dive into h_ai and find that Bioware has
+    made an action queue and that the toolkit knows when a meme is "done"
+    because I added a function to the queue that tells me its done. Your
+    first thought will likely be "That's clever." until about ten seconds
+    later when you realize that if your action queue is ever cleared
+    prematurely, your NPC is brain dead until the next time a generator
+    fires, creating a higher priority meme. At which point, you'll likely
+    think "That sucks." And you'd be right.
+    
+    Luckily, nothing in Bioware's system should clear that queue. If it
+    happens, it's essentially a bug. (In reality there are a few corner
+    cases where this happens, but this is far less of an issue than it
+    was two years ago.) 
+
+  * Further down the road of tinker-town you might find yourself wondering
+    why there are these DelayCommand(0.0,...) calls littered throughout the
+    code with the occassional DelayCommand(0.1,...) call. If asked we'd
+    be more than happy to explain that the game engine processes all the
+    creatures and scheduled scripts in a timeslice. Any given script
+    is limited to a fixed number of instructions or maximum amount of
+    processing time. If the script does too much, it's terminated. Those
+    commands with 0.0 allow us to circumvent this limitation and ask the
+    engine to run the command after all other queued scripts are run, in
+    the *current* timeslice. The 0.1 asks that it get scheduled in the
+    next immediate timeslice.
+    
+Regardless of your skill, everyone involved in this project hopes the
+Memetic Toolkit can provide you with something. Perhaps it's useful,
+entertaining or just plain technically challenging -- whatever it is, it's
+here to stay.
+
+William Bull (Kilkonie)
+bbull@memeticai.org
+
